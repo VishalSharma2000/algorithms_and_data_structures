@@ -45,7 +45,9 @@ void removeDuplicates ( Node * head )
   while( currNode ) {
     nextNode = currNode->next;
     while(nextNode && nextNode->data == currNode->data) {
+      Node* tempNode = nextNode;      //storing the address of duplicate node to a tempNode pointer
       nextNode = nextNode->next;
+      delete tempNode;                //free the memory of the duplicate node.
     }
     currNode->next = nextNode;
     currNode = nextNode;
